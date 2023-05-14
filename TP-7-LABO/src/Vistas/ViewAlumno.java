@@ -160,11 +160,14 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-        Alumno al = new Alumno(Integer.parseInt(jtfIngresoLegajo.getText()),jtfIngresoApellido.getText(),jtfIngresoNombre.getText());
-       Menu.elColegio.addAlumnosTotales(al);
-       jlbMensajeConfirmacion.setText("Alumno cargado!");
-       
-       
+    int legajo = Integer.parseInt(jtfIngresoLegajo.getText());
+    if (Menu.elColegio.getAlumnosTotales().containsKey(legajo)) {
+        jlbMensajeConfirmacion.setText("Ya existe un alumno con ese legajo");
+    } else {
+        Alumno al = new Alumno(legajo, jtfIngresoApellido.getText(), jtfIngresoNombre.getText());
+        Menu.elColegio.addAlumnosTotales(al);
+        jlbMensajeConfirmacion.setText("Alumno cargado!");
+    } 
      
     }//GEN-LAST:event_jbCrearActionPerformed
     public void limpiar(){
