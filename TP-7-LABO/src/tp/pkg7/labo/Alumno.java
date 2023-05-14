@@ -5,6 +5,9 @@
  */
 package tp.pkg7.labo;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 /**
  *
  * @author Gonza
@@ -13,6 +16,7 @@ public class Alumno {
     private int legajo;
     private String apellido;
     private String nombre;
+    private HashSet<Materia> materias;
 
     public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
@@ -44,12 +48,13 @@ public class Alumno {
         this.nombre = nombre;
     }
     public void agregarMateria(Materia m){
-    
+        materias.add(m);
     }
     public int cantidadMaterias(){
         
-    return 0;
+    return materias.size();
     
     }
+    
     
 }
