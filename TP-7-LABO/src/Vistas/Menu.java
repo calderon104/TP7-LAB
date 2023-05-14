@@ -124,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
          escritorio.removeAll();
         escritorio.repaint();
-        ViewMateria vm= new ViewMateria();
+        viewMateria vm= new viewMateria();
         vm.setVisible(true);
         escritorio.add(vm);
         escritorio.add(logo);
