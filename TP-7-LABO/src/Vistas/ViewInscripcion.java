@@ -5,6 +5,7 @@
 package Vistas;
 
 import java.util.HashSet;
+import tp.pkg7.labo.Colegio;
 import tp.pkg7.labo.Materia;
 
 /**
@@ -18,6 +19,7 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
      */
     public ViewInscripcion() {
         initComponents();
+        Colegio colegio = new Colegio();
     }
 
     /**

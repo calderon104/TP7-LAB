@@ -15,28 +15,12 @@ import java.util.HashSet;
  */
 public class Colegio {
 
-private HashSet<Materia> materiasTotales;    
-private HashMap<Integer, Alumno> alumnosTotales;
+static HashSet<Materia> materiasTotales;    
+static HashMap<Integer, Alumno> alumnosTotales;
 
     public static void main(String[] args) {
         Materia m = new Materia(1,"Ingles",1);
         
-    }
-    
-    public HashSet<Materia> getMateriasTotales(){
-        return materiasTotales;
-    }
-    
-    public void setMateriasTotales(Materia m){
-        materiasTotales.add(m);
-    }
-    
-    public HashMap<Integer, Alumno> getAlumnosTotales(){
-        return alumnosTotales;
-    }
-    
-    public void setAlumnosTotales(Alumno a){
-        alumnosTotales.put(a.getLegajo(), a);
     }
     
 }
