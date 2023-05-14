@@ -4,6 +4,7 @@
  */
 package Vistas;
 import tp.pkg7.labo.Alumno;
+import tp.pkg7.labo.Colegio;
 /**
  *
  * @author Berto
@@ -160,7 +161,10 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
         Alumno al = new Alumno(Integer.parseInt(jtfIngresoLegajo.getText()),jtfIngresoApellido.getText(),jtfIngresoNombre.getText());
-        
+       Menu.elColegio.addAlumnosTotales(al);
+       jlbMensajeConfirmacion.setText("Alumno cargado!");
+       
+       
      
     }//GEN-LAST:event_jbCrearActionPerformed
     public void limpiar(){
@@ -168,6 +172,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         jtfIngresoLegajo.setText("");
         jtfIngresoNombre.setText("");
         jtfIngresoApellido.setText("");
+        jlbMensajeConfirmacion.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
