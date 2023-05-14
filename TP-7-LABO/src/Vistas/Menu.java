@@ -5,15 +5,17 @@
  */
 package Vistas;
 
+import tp.pkg7.labo.Colegio;
+
 /**
  *
  * @author juany
  */
 public class Menu extends javax.swing.JFrame {
-
     /**
      * Creates new form Menu
      */
+    public static Colegio elColegio= new Colegio();
     public Menu() {
         initComponents();
     }
