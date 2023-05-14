@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import tp.pkg7.labo.Materia;
+
 /**
  *
  * @author Gonza
@@ -60,10 +62,25 @@ public class viewMateria extends javax.swing.JFrame {
         });
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -147,6 +164,27 @@ public class viewMateria extends javax.swing.JFrame {
     private void jtfCMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfCMActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        jtfAM.setText("");
+        jtfCM.setText("");
+        jtfNM.setText("");
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try {
+            int codiMateria=Integer.parseInt(jtfCM.getText());
+            String nombreMat=jtfNM.getText();
+            int anioPertenece=Integer.parseInt(jtfAM.getText());
+            Materia m = new Materia(codiMateria,nombreMat,anioPertenece);
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
