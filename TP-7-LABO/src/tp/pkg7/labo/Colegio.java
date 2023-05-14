@@ -16,6 +16,7 @@ public class Colegio {
      */
     public static void main(String[] args) {
         Materia m = new Materia(1,"Ingles",1);
+        
     }
     
 }
