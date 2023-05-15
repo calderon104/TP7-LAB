@@ -4,7 +4,12 @@
  */
 package Vistas;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Map;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import tp.pkg7.labo.Alumno;
 import tp.pkg7.labo.Colegio;
 import tp.pkg7.labo.Materia;
 
@@ -19,7 +24,8 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
      */
     public ViewInscripcion() {
         initComponents();
-        Colegio colegio = new Colegio();
+        cargarAlumnos();
+        cargarMateria();
     }
 
     /**
@@ -46,8 +52,6 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
         jLabel1.setText("ELIJA UNA MATERIA:");
 
         jLabel2.setText("ELIJA UN ALUMNO:");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Formulario de Inscripción");
@@ -76,9 +80,9 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -88,7 +92,26 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void cargarAlumnos(){
+        Alumno alumnoPrueba = new Alumno(1, "mate", "test");
+        Menu.elColegio.addAlumnosTotales(alumnoPrueba);
 
+        for(Map.Entry<Integer, Alumno> entry : Menu.elColegio.getAlumnosTotales().entrySet()) {
+            jComboBox2.addItem(entry.getValue().getNombre() + " " + entry.getValue().getApellido());
+        }
+
+    }
+    
+    private void cargarMateria(){
+        Materia materiaPrueba = new Materia(1, "mate", 3);
+        Menu.elColegio.addMateriasTotales(materiaPrueba);
+
+        for (Materia materia : Menu.elColegio.getMateriasTotales()) {
+            jComboBox1.addItem(materia.getNombre());
+        }
+    }
+    
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
