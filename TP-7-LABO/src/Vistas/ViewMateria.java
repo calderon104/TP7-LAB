@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import tp.pkg7.labo.Materia;
+
 /**
  *
  * @author Gonza
@@ -53,6 +55,11 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnNuevo.setText("Nuevo");
 
@@ -127,6 +134,19 @@ public class ViewMateria extends javax.swing.JInternalFrame {
     private void tfCodigoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCodigoMateriaActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try{
+        int codMat= Integer.parseInt(tfCodigoMateria.getText());
+        String nomMateria=tfNombreMateria.getText();
+        int anioM= Integer.parseInt(tfAnioMateria.getText());
+        Materia m= new Materia(codMat,nomMateria,anioM);
+        Menu.elColegio.addMateriasTotales(m);
+        }
+        catch(Exception e){
+        
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
