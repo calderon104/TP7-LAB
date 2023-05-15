@@ -40,7 +40,7 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jbxAlumno = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,11 +64,11 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jComboBox1, 0, 217, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbxAlumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(130, 130, 130))
             .addGroup(layout.createSequentialGroup()
                 .addGap(131, 131, 131)
@@ -86,7 +86,7 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(206, Short.MAX_VALUE))
         );
 
@@ -94,15 +94,13 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void cargarAlumnos(){
-        Alumno alumnoPrueba = new Alumno(1, "mate", "test");
-        Menu.elColegio.addAlumnosTotales(alumnoPrueba);
-
         try{
-            
+            for (Map.Entry<Integer, Alumno> entry : Menu.elColegio.getAlumnosTotales().entrySet()) {
+                jbxAlumno.addItem(entry.getKey()+"/ "+entry.getValue().getNombre()+" "+entry.getValue().getApellido());
+            }
         }catch(NullPointerException e){
             System.out.println("Error al recuperar Alumnos : "+e.toString());
         }
-
     }
     
     private void cargarMateria(){
@@ -125,9 +123,9 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> jbxAlumno;
     // End of variables declaration//GEN-END:variables
 }
