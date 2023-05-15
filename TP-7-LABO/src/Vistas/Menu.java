@@ -33,8 +33,9 @@ public class Menu extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        miInscripcion = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -62,29 +63,38 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(130, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Agregar Alumno");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+        jMenu1.setText("Ventanas");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
             }
         });
+
+        jMenuItem2.setText("Alumno");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Materias");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        miInscripcion.setText("Inscripcion");
+        miInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miInscripcionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miInscripcion);
+
         jMenuBar1.add(jMenu1);
-
-        jMenu3.setText("Agregar Materia");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Inscripcion");
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu4);
 
         jMenu2.setText("Salir");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,58 +129,63 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        // TODO add your handling code here:
-        escritorio.removeAll();
-        escritorio.repaint();
-        ViewAlumno va= new ViewAlumno();
-        va.setVisible(true);
-        escritorio.add(va);
-        escritorio.add(logo);
-        escritorio.moveToFront(va);
-         
-        
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        // TODO add your handling code here:
-         escritorio.removeAll();
-        escritorio.repaint();
-        viewMateria vm= new viewMateria();
-        vm.setVisible(true);
-        escritorio.add(vm);
-        escritorio.add(logo);
-        escritorio.moveToFront(vm);
-        
-    }//GEN-LAST:event_jMenu3ActionPerformed
-
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        // TODO add your handling code here:
-         escritorio.removeAll();
-        escritorio.repaint();
-        ViewInscripcion vi= new ViewInscripcion();
-        vi.setVisible(true);
-        escritorio.add(vi);
-        escritorio.add(logo);
-        escritorio.moveToFront(vi);
-    }//GEN-LAST:event_jMenu4ActionPerformed
-
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
     
         // TODO add your handling code here:
-        dispose();
+       
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-         escritorio.removeAll();
-        escritorio.repaint();
-        ViewInscripcion vi= new ViewInscripcion();
-        vi.setVisible(true);
-        escritorio.add(vi);
-        escritorio.add(logo);
-        escritorio.moveToFront(vi);
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        ViewAlumno va = new ViewAlumno();
+        va.setVisible(true);
+        
+        escritorio.add(va);
+        escritorio.add(logo);
+        
+        escritorio.moveToFront(va);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        ViewMateria va = new ViewMateria();
+        va.setVisible(true);
+        
+        escritorio.add(va);
+        escritorio.add(logo);
+        
+        escritorio.moveToFront(va);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void miInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miInscripcionActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        ViewInscripcion va = new ViewInscripcion();
+        va.setVisible(true);
+        
+        escritorio.add(va);
+        escritorio.add(logo);
+        
+        escritorio.moveToFront(va);
+    }//GEN-LAST:event_miInscripcionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,10 +226,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel logo;
+    private javax.swing.JMenuItem miInscripcion;
     // End of variables declaration//GEN-END:variables
 }

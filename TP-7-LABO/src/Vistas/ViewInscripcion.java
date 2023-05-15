@@ -24,8 +24,8 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
      */
     public ViewInscripcion() {
         initComponents();
-        cargarAlumnos();
-        cargarMateria();
+        //cargarAlumnos();
+        //cargarMateria();
     }
 
     /**
