@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import javax.swing.JOptionPane;
 import tp.pkg7.labo.Materia;
 
 /**
@@ -62,8 +63,18 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,12 +153,26 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         int anioM= Integer.parseInt(tfAnioMateria.getText());
         Materia m= new Materia(codMat,nomMateria,anioM);
         Menu.elColegio.addMateriasTotales(m);
+        limpiar();
+            JOptionPane.showMessageDialog(null, "Se cargo la materia");
         }
         catch(Exception e){
         
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+      limpiar();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+    private void limpiar(){
+    tfCodigoMateria.setText("");
+    tfAnioMateria.setText("");
+    tfNombreMateria.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
