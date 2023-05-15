@@ -8,6 +8,7 @@ import Vistas.Menu;
 import tp.pkg7.labo.Materia;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 
 /**
@@ -38,8 +39,28 @@ private HashMap<Materia, Alumno> listaInscriptos= new HashMap<Materia,Alumno>();
        alumnosTotales.put(a1.getLegajo(), a1);
     }
     public boolean inscribir(int m, int a){
+        Alumno al=null;
+        
+        for (Map.Entry<Integer, Alumno> entry : alumnosTotales.entrySet()) {
+            if(entry.getValue().getLegajo()==a){
+                al=entry.getValue();
+            }
+            
+        }
+        
+        
+        boolean ok = true;
+        
         for (Materia mt : materiasTotales) {
-            if(mt.getIdMateria()==m && !listaInscriptos.containsKey(mt)&& !listaInscriptos.containsValue(alumnosTotales.get(a))){
+            for (Map.Entry<Materia, Alumno> entry : listaInscriptos.entrySet()) {
+                if(entry.getValue().equals(al)){
+                    if(entry.getKey().equals(mt)){
+                        ok=false;
+                    }
+                }
+                
+            }
+            if(mt.getIdMateria()==m && ok){
             listaInscriptos.put(mt,alumnosTotales.get(a));
             return true;
             }
@@ -60,6 +81,9 @@ private HashMap<Materia, Alumno> listaInscriptos= new HashMap<Materia,Alumno>();
 
     public void addAlumnosTotales(Alumno alumno) {
         alumnosTotales.put(alumno.getLegajo(), alumno);
+    }
+    public HashMap<Materia,Alumno> getListaInscripto(){
+        return listaInscriptos;
     }
      
 }
