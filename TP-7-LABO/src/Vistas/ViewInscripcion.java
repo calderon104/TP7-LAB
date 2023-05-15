@@ -24,8 +24,8 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
      */
     public ViewInscripcion() {
         initComponents();
-        //cargarAlumnos();
-        //cargarMateria();
+        cargarAlumnos();
+        cargarMateria();
     }
 
     /**
@@ -97,8 +97,10 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
         Alumno alumnoPrueba = new Alumno(1, "mate", "test");
         Menu.elColegio.addAlumnosTotales(alumnoPrueba);
 
-        for(Map.Entry<Integer, Alumno> entry : Menu.elColegio.getAlumnosTotales().entrySet()) {
-            jComboBox2.addItem(entry.getValue().getNombre() + " " + entry.getValue().getApellido());
+        try{
+            
+        }catch(NullPointerException e){
+            System.out.println("Error al recuperar Alumnos : "+e.toString());
         }
 
     }
@@ -107,8 +109,12 @@ public class ViewInscripcion extends javax.swing.JInternalFrame {
         Materia materiaPrueba = new Materia(1, "mate", 3);
         Menu.elColegio.addMateriasTotales(materiaPrueba);
 
-        for (Materia materia : Menu.elColegio.getMateriasTotales()) {
+        try{
+            for (Materia materia : Menu.elColegio.getMateriasTotales()) {
             jComboBox1.addItem(materia.getNombre());
+        }
+        }catch(NullPointerException e){
+            System.out.println("Erro al recuperar materias: "+e.toString());
         }
     }
     

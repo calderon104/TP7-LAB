@@ -15,13 +15,13 @@ import java.util.HashSet;
  */
 public class Colegio {
 
-private HashSet<Materia> materiasTotales;    
-private HashMap<Integer, Alumno> alumnosTotales;
+private HashSet<Materia> materiasTotales = new HashSet<Materia>();    
+private HashMap<Integer, Alumno> alumnosTotales= new HashMap<Integer,Alumno>();
 
-    public static void main(String[] args) {
-        Materia m = new Materia(1,"Ingles",1);
-        
-    }
+//    public static void main(String[] args) {
+//        Materia m = new Materia(1,"Ingles",1);
+//        
+//    }
 
     public HashSet<Materia> getMateriasTotales() {
         return materiasTotales;
