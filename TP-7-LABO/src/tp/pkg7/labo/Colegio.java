@@ -18,6 +18,7 @@ public class Colegio {
 
 private HashSet<Materia> materiasTotales = new HashSet<Materia>();    
 private HashMap<Integer, Alumno> alumnosTotales= new HashMap<Integer,Alumno>();
+private HashMap<Materia, Alumno> listaInscriptos= new HashMap<Materia,Alumno>();
 
 //   public static void main(String[] args) {
 //       Menu m = new Menu();
@@ -36,7 +37,15 @@ private HashMap<Integer, Alumno> alumnosTotales= new HashMap<Integer,Alumno>();
        alumnosTotales.put(a.getLegajo(), a);
        alumnosTotales.put(a1.getLegajo(), a1);
     }
-
+    public boolean inscribir(int m, int a){
+        for (Materia mt : materiasTotales) {
+            if(mt.getIdMateria()==m && !listaInscriptos.containsKey(mt)&& !listaInscriptos.containsValue(alumnosTotales.get(a))){
+            listaInscriptos.put(mt,alumnosTotales.get(a));
+            return true;
+            }
+        }
+        return false;
+    }
     public HashSet<Materia> getMateriasTotales() {
         return materiasTotales;
     }
